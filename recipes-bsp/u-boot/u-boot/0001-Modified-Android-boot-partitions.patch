@@ -1,0 +1,27 @@
+From e6663bb3754a0a7c8d2a57931c470f6c73c6868f Mon Sep 17 00:00:00 2001
+From: Mike Thompson <mthompson@dustyrobotics.com>
+Date: Thu, 14 Apr 2022 23:14:45 -0700
+Subject: [PATCH] Modified Android boot partitions
+
+Androids root partions are /dev/mmcblk0p8 and /dev/mmcblk1p8.
+However, the meta rockchip layer only uses for partitions.
+Modified u-boot to use /dev/mmcblk0p4 and /dev/mmcblk1p4.
+---
+ common/image-android.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/common/image-android.c b/common/image-android.c
+index 14bd659c3d..91bdb2767a 100644
+--- a/common/image-android.c
++++ b/common/image-android.c
+@@ -988,8 +988,8 @@ int android_image_get_kernel(const struct andr_img_hdr *hdr, int verify,
+ 		len += strlen(cmdline);
+ 	}
+ 
+-	char *rootmmc0 = "root=/dev/mmcblk0p8"; /* SDcard Boot */
+-	char *rootmmc1 = "root=/dev/mmcblk1p8"; /* eMMC Boot */
++	char *rootmmc0 = "root=/dev/mmcblk0p4"; /* SDcard Boot */
++	char *rootmmc1 = "root=/dev/mmcblk1p4"; /* eMMC Boot */
+ 
+ 	char *bootargs = env_get("bootargs");
+ 	if (bootargs)

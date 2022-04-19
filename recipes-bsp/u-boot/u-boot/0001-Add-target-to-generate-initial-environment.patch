@@ -1,0 +1,40 @@
+From aae3fde26af3ac7c89e5d8958f4d03600f081ba8 Mon Sep 17 00:00:00 2001
+From: Mike Thompson <mthompson@dustyrobotics.com>
+Date: Thu, 14 Apr 2022 19:45:13 -0700
+Subject: [PATCH] Add target to generate initial environment
+
+The initial environment is linked to the u-boot binary. Modifying the
+environment from User Space with the env tools requires that the tools
+are always built together with the bootloader to be sure that they
+contain the initial environment in case no environment is stored into
+persistent storage or when a board boots with just the default
+environment. This makes difficult for distros to provide a general
+package to access the environment. A simpler way is if the tools are
+generic for all boards and a configuration file is given to provide the
+initial environment.
+
+The patch just generates the initial environment by extracting it from
+the compiled object. This file can then be used for tools in user space
+to initialize the environment.
+---
+ Makefile | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 2e39eafdd4..2a5a9af487 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1698,6 +1698,13 @@ endif
+ 	$(build)=$(build-dir) $(@:.ko=.o)
+ 	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost
+ 
++quiet_cmd_genenv = GENENV $@
++cmd_genenv = $(OBJCOPY) --dump-section .rodata.default_environment=$@ env/common.o; \
++	sed --in-place -e 's/\x00/\x0A/g' $@
++
++u-boot-initial-env: u-boot.bin
++	$(call if_changed,genenv)
++
+ # FIXME Should go into a make.lib or something
+ # ===========================================================================
+ 
