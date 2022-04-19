@@ -1,0 +1,10 @@
+[Unit]
+Description=fancontrol
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/fancontrol
+
+[Install]
+WantedBy=multi-user.target
+
