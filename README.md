@@ -194,30 +194,11 @@ hciconfig hci0 up
 
 ```
  $ hciconfig
- hci0:   Type: Primary  Bus: UART
-         BD Address: 22:22:70:B2:10:6F  ACL MTU: 1021:8  SCO MTU: 255:12
-         UP RUNNING 
-         RX bytes:1399 acl:0 sco:0 events:45 errors:0
-         TX bytes:3458 acl:0 sco:0 commands:45 errors:0
-```
-
-+ Bluetooth on RockPi-S
-
-**Activating bluetooth:**
-
-```
-hciconfig hci0 up
-```
-
-**Check Bluetooth device:**
-
-```
- $ hciconfig
- hci0:   Type: Primary  Bus: UART
-         BD Address: 22:22:70:B2:10:6F  ACL MTU: 1021:8  SCO MTU: 255:12
-         UP RUNNING 
-         RX bytes:1399 acl:0 sco:0 events:45 errors:0
-         TX bytes:3458 acl:0 sco:0 commands:45 errors:0
+ hci0:    Type: Primary  Bus: USB
+          BD Address: 3C:91:80:B7:A1:BC  ACL MTU: 1021:6  SCO MTU: 255:12
+          UP RUNNING 
+          RX bytes:1272 acl:0 sco:0 events:71 errors:0
+          TX bytes:1086 acl:0 sco:0 commands:71 errors:0
 ```
 
 ## Change Log <a name="change_log"></a>
