@@ -1,0 +1,25 @@
+From 5bc69b2024528e13980b73ca272aae39878a9f43 Mon Sep 17 00:00:00 2001
+From: Mike Thompson <mthompson@dustyrobotics.com>
+Date: Mon, 18 Apr 2022 23:52:14 -0700
+Subject: [PATCH 1/1] Fixed linking error with yylloc
+
+---
+ scripts/dtc/dtc-parser.tab.c_shipped | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/scripts/dtc/dtc-parser.tab.c_shipped b/scripts/dtc/dtc-parser.tab.c_shipped
+index aea514fa69..3da9433341 100644
+--- a/scripts/dtc/dtc-parser.tab.c_shipped
++++ b/scripts/dtc/dtc-parser.tab.c_shipped
+@@ -1201,8 +1201,6 @@ int yychar;
+ 
+ /* The semantic value of the lookahead symbol.  */
+ YYSTYPE yylval;
+-/* Location data for the lookahead symbol.  */
+-YYLTYPE yylloc
+ # if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+   = { 1, 1, 1, 1 }
+ # endif
+-- 
+2.25.1
+
