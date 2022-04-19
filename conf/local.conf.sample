@@ -247,3 +247,8 @@ PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
 CONF_VERSION = "1"
+
+DISTRO_FEATURES_append = " pam systemd"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+PACKAGECONFIG_append_pn-systemd = " resolved networkd"
+

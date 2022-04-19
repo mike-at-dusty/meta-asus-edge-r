@@ -93,6 +93,7 @@ Fetch the source using the commands given below:
 * Add the following lines in the build/conf/local.conf
 
 ```
+MACHINE = "rockchip-rk3399pro-tinker_board_edger"
 DISTRO_FEATURES_append = " pam systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 PACKAGECONFIG_append_pn-systemd = " resolved networkd"
