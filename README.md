@@ -4,7 +4,7 @@
 
 1. [Introduction](#introduction)
 2. [Dependencies](#dependencies)
-3. [List of Radxa Boards supported](#list_of_boards_supported)
+3. [List of Tinker Boards supported](#list_of_boards_supported)
 4. [Using the meta-radxa layer](#meta_tinker_board_edger_usage)
     1. [Step 1:Fetching the Source](#source_fetch)
     2. [Step 2:Setting up the Environment](#setup)
