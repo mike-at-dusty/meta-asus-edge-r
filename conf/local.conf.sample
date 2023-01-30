@@ -16,7 +16,7 @@
 #
 # You need to select a specific machine to target the build with.
 #
-MACHINE ?= "rockchip-rk3399pro-tinker_board_edger"
+MACHINE ?= "rockchip-rk3399pro-tinker-board-edger"
 
 #
 # Where to place downloads
