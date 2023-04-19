@@ -5,7 +5,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 # Contains basic dependencies, that can work without graphics/display
-RDEPENDS_packagegroup-edger-console = "\
+RDEPENDS:packagegroup-edger-console = "\
     coreutils \
     cpufrequtils \
     gnupg \

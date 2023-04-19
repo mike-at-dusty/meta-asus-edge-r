@@ -2,7 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " file://NetworkManager.conf"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
 	${sysconfdir}/NetworkManager/NetworkManager.conf \
 "
 
