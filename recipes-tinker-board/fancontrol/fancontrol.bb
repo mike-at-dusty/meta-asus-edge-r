@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 
 COMPATIBLE_HOST = "aarch64.*-linux"
 
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 
 SRC_URI = "file://fancontrol.sh \
            file://fancontrol.service \
@@ -30,5 +30,5 @@ do_install() {
 }
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "fancontrol.service"
+SYSTEMD_SERVICE:${PN} = "fancontrol.service"
 SYSTEMD_AUTO_ENABLE = "enable"

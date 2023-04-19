@@ -31,13 +31,13 @@ An OpenEmbedded/Yocto Project BSP layer for the ASUS Tinker Board Edge R machine
 The meta-tinker-board-edger layer depends on:
 
 	URI: git://git.yoctoproject.org/poky
-	branch: dunfell
+	branch: kirkstone
 
 	URI: git://git.openembedded.org/meta-openembedded
-	branch: dunfell
+	branch: kirkstone
 
 	URI: https://github.com/JeffyCN/meta-rockchip.git
-	branch: dunfell
+	branch: kirkstone
 
 ## List of Tinker Boards supported <a name="list_of_boards_supported"></a>
 
@@ -52,10 +52,10 @@ Fetch the source using the commands given below:
 <pre><code>
 ~ $ mkdir yocto
 ~ $ cd yocto
-~/yocto $ git clone git://git.yoctoproject.org/poky -b dunfell
-~/yocto $ git clone git://git.openembedded.org/meta-openembedded -b dunfell
-~/yocto $ git clone https://github.com/JeffyCN/meta-rockchip.git -b dunfell
-~/yocto $ git clone https://github.com/mike-at-dusty/meta-tinker-board-edger.git -b dunfell
+~/yocto $ git clone git://git.yoctoproject.org/poky -b kirkstone
+~/yocto $ git clone git://git.openembedded.org/meta-openembedded -b kirkstone
+~/yocto $ git clone https://github.com/JeffyCN/meta-rockchip.git -b kirkstone
+~/yocto $ git clone https://github.com/mike-at-dusty/meta-tinker-board-edger.git -b kirkstone
 </code></pre>
 
 ### Step 2: Setting up the Environment <a name="setup"></a>
@@ -94,9 +94,9 @@ Fetch the source using the commands given below:
 
 ```
 MACHINE = "rockchip-rk3399pro-tinker_board_edger"
-DISTRO_FEATURES_append = " pam systemd"
+DISTRO_FEATURES:append = " pam systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
-PACKAGECONFIG_append_pn-systemd = " resolved networkd"
+PACKAGECONFIG:append_pn-systemd = " resolved networkd"
 ```
 
 ### Step 5: Building the Image <a name="build_image"></a>

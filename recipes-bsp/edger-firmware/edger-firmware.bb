@@ -21,5 +21,5 @@ do_install () {
     install -m 0755 ${WORKDIR}/rtl8822cu_fw ${D}/lib/firmware/rtl8822cu_fw
 }
 
-FILES_${PN} = "/lib/firmware/*"
+FILES:${PN} = "/lib/firmware/*"
 
