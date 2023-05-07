@@ -5,7 +5,7 @@
 1. [Introduction](#introduction)
 2. [Dependencies](#dependencies)
 3. [List of Tinker Boards supported](#list_of_boards_supported)
-4. [Using the meta-radxa layer](#meta_tinker_board_edger_usage)
+4. [Using the meta-asus-edge-r layer](#meta_asus_edge_r_usage)
     1. [Step 1:Fetching the Source](#source_fetch)
     2. [Step 2:Setting up the Environment](#setup)
     3. [Step 3:Bblayers.conf Setup](#bblayers.conf_setup)
@@ -28,7 +28,7 @@ An OpenEmbedded/Yocto Project BSP layer for the ASUS Tinker Board Edge R machine
 
 ## Dependencies <a name="dependencies"></a>
 
-The meta-tinker-board-edger layer depends on:
+The meta-asus-edge-r layer depends on:
 
 	URI: git://git.yoctoproject.org/poky
 	branch: kirkstone
@@ -43,7 +43,7 @@ The meta-tinker-board-edger layer depends on:
 
 1) ASUS Tinker Board Edge R
 
-## Using the meta-radxa layer <a name="meta_tinker_board_edger_usage"></a>
+## Using the meta-radxa layer <a name="meta_asus_edge_r_usage"></a>
 
 ### Step 1: Fetching the source <a name="source_fetch"></a>
 
@@ -55,7 +55,7 @@ Fetch the source using the commands given below:
 ~/yocto $ git clone git://git.yoctoproject.org/poky -b kirkstone
 ~/yocto $ git clone git://git.openembedded.org/meta-openembedded -b kirkstone
 ~/yocto $ git clone https://github.com/JeffyCN/meta-rockchip.git -b kirkstone
-~/yocto $ git clone https://github.com/mike-at-dusty/meta-tinker-board-edger.git -b kirkstone
+~/yocto $ git clone https://github.com/mike-at-dusty/meta-asus-edge-r.git -b kirkstone
 </code></pre>
 
 ### Step 2: Setting up the Environment <a name="setup"></a>
@@ -66,7 +66,7 @@ Fetch the source using the commands given below:
 
 #### Step 3: Bblayers.conf Setup <a name="bblayers.conf_setup"></a>
 
-* You can simply copy the bblayers.conf.sample present in meta-tinker-board-edger/conf folder to the build/conf folder and rename it to bblayers.conf
+* You can simply copy the bblayers.conf.sample present in meta-asus-edge-r/conf folder to the build/conf folder and rename it to bblayers.conf
 
 <div align="center"><b>OR</b></div>
 
@@ -81,20 +81,20 @@ Fetch the source using the commands given below:
   ${TOPDIR}/../meta-openembedded/meta-networking \
   ${TOPDIR}/../meta-openembedded/meta-python \
   ${TOPDIR}/../meta-rockchip \
-  ${TOPDIR}/../meta-tinker-board-edger \
+  ${TOPDIR}/../meta-asus-edge-r \
 </code></pre>
 
 ### Step 4: Local.conf Setup <a name="local.conf_setup"></a>
 
-* You can simply copy the local.conf.sample present in meta-tinker-board-edger/conf folder to the build/conf folder and rename it to local.conf
+* You can simply copy the local.conf.sample present in meta-asus-edge-r/conf folder to the build/conf folder and rename it to local.conf
 
 <div align="center"><b>OR</b></div>
 
 * Add the following lines in the build/conf/local.conf
 
 ```
-MACHINE = "rockchip-rk3399pro-tinker_board_edger"
-DISTRO_FEATURES:append = " pam systemd"
+MACHINE = "asus-edge-r"
+DISTRO_FEATURES_append = " pam systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 PACKAGECONFIG:append_pn-systemd = " resolved networkd"
 ```
@@ -103,18 +103,18 @@ PACKAGECONFIG:append_pn-systemd = " resolved networkd"
 
 * If you wish to build a minimal image use the command given below:
 ```
-~/yocto/poky/build $ bitbake -k edger-minimal-image
+~/yocto/poky/build $ bitbake -k edge-r-minimal-image
 ```
 <div align="center"><b>OR</b></div>
 
 * If you wish to build a console image use the command given below:
 
 ```
-~/yocto/poky/build $ bitbake -k edger-console-image
+~/yocto/poky/build $ bitbake -k edge-r-console-image
 ```
 <div align="center"><b>OR</b></div>
 
-**At the end of a successful build, you should have an update.img image in tmp/deploy/images/rockchip-rk3399pro-tinker_board_edger folder. The update.img can be directly flashed to emmc memory on the Edge R**
+**At the end of a successful build, you should have an update.img image in tmp/deploy/images/asus-edge-r folder. The update.img can be directly flashed to emmc memory on the Edge R**
 
 ## Serial Console <a name="serial_console"></a>
 
@@ -207,7 +207,7 @@ hciconfig hci0 up
 
 ## Contributing <a name="contributing"></a>
 
-Please use github for pull requests: https://github.com/mike-at-dusty/meta-tinker-board-edger/pulls
+Please use github for pull requests: https://github.com/mike-at-dusty/meta-asus-edge-r/pulls
 
 ## Reporting bugs <a name="bugs"></a>
 

@@ -15,7 +15,9 @@
 #
 # Machine Selection
 #
-MACHINE ?= "rockchip-rk3399pro-tinker-board-edger"
+# You need to select a specific machine to target the build with.
+#
+MACHINE ?= "asus-edge-r"
 
 #
 # Where to place downloads
